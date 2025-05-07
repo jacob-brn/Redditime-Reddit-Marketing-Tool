@@ -1,0 +1,1 @@
+ALTER TABLE `subscription` ADD `icon_url` text;

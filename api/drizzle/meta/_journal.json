@@ -1,0 +1,48 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1744821693644,
+      "tag": "0000_ancient_gwen_stacy",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1744822197776,
+      "tag": "0001_careless_kabuki",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1745333291370,
+      "tag": "0002_right_deadpool",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1745334927702,
+      "tag": "0003_left_albert_cleary",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1745949698899,
+      "tag": "0004_stiff_devos",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1746360675518,
+      "tag": "0005_mighty_retro_girl",
+      "breakpoints": true
+    }
+  ]
+}
