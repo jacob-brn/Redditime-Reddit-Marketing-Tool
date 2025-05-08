@@ -6,4 +6,5 @@ import { env } from "@/src/lib/env.js";
 
 const sqlite = new Database(env.DATABASE_URL ?? "sqlite.db");
 
+console.log(env.DATABASE_URL);
 export const db = drizzle(sqlite, { schema });

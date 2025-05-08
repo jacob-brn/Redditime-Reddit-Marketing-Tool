@@ -26,11 +26,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  env: {
-    // put your nextjs env variables here
-    NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
-    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
-  },
 };
 
 export default nextConfig;

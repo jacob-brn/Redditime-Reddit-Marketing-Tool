@@ -42,7 +42,6 @@ const SchedulePostDashboardPage = () => {
         setLoading(false);
       }
     };
-
     loadScheduledPosts();
   }, [router]);
 

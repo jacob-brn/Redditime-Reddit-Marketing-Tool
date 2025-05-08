@@ -50,6 +50,7 @@ const api = axios.create({
 
 export async function fetchTrackedKeywords(): Promise<TrackedKeyword[]> {
   try {
+    console.log(process.env.NEXT_PUBLIC_API_URL);
     const response = await api.get<ApiResponse>(
       "/api/reddit/my-tracked-keywords"
     );
