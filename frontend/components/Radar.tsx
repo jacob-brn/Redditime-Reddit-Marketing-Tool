@@ -3,7 +3,7 @@ import React, { useMemo } from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
-export const Radar = ({ className }: any) => {
+export const Radar = ({ className }: { className?: string }) => {
   const circles = new Array(5).fill(1);
 
   const maxRadius = useMemo(

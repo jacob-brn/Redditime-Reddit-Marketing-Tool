@@ -119,7 +119,7 @@ export default function Home() {
             fadeOnBottom
             fadeOnTop
           >
-            <Radar />
+            <Radar className="absolute top-full left-1/2" />
           </FeatureCard>
           <FeatureCard
             title="Schedule your posts"

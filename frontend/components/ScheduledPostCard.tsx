@@ -3,7 +3,6 @@ import DeleteScheduledPostDialog from "./DeleteScheduledPostDialog";
 import { CalendarClock, CheckCircle, Clock, XCircle } from "lucide-react";
 
 const ScheduledPostCard = ({
-  id,
   subreddit,
   title,
   scheduledFor,

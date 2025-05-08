@@ -14,7 +14,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { CalendarIcon, Clock } from "lucide-react";
+import { CalendarIcon } from "lucide-react";
 import { SubredditSearchInput } from "./SubredditSearchInput";
 import { DateTimePicker24h } from "./ui/DateTimePicker";
 
