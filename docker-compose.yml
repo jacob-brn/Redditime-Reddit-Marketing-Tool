@@ -19,8 +19,6 @@ services:
       - RESEND_API_KEY=${RESEND_API_KEY}
     volumes:
       - ./api/db.sqlite:/app/db.sqlite
-    command: npm run dev
-
   frontend:
     build:
       context: ./frontend

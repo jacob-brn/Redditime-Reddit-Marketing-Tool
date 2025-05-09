@@ -1,11 +1,13 @@
 import { defineConfig } from "drizzle-kit";
-import { env } from "./src/lib/env.ts";
 
 export default defineConfig({
   out: "./drizzle",
-  schema: "./src/db/schema.ts",
+  schema:
+    process.env.NODE_ENV === "production"
+      ? "./db/schema.js"
+      : "./src/db/schema.js",
   dialect: "sqlite",
   dbCredentials: {
-    url: env.DATABASE_URL!,
+    url: process.env.DATABASE_URL!,
   },
 });

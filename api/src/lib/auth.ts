@@ -1,7 +1,7 @@
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { db } from "../db/index.js";
-import { env } from "./env.ts";
+import { env } from "./env.js";
 
 export const auth = betterAuth({
   trustedOrigins: [env.NEXT_PUBLIC_APP_URL],

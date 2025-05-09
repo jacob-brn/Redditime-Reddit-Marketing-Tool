@@ -3,7 +3,7 @@ import { scheduledPost } from "../db/schema.js";
 import { and, eq, lte } from "drizzle-orm";
 import getRedditAccessToken from "../lib/get-reddit-access-token.js";
 import axios from "axios";
-import { env } from "../lib/env.ts";
+import { env } from "../lib/env.js";
 
 async function submitPostToReddit(
   accessToken: string,
