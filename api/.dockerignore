@@ -1,6 +1,7 @@
-.dockerignore
 Dockerfile
 node_modules
 .git 
+.gitignore
+.dockerignore
 *.sqlite
 README.md 

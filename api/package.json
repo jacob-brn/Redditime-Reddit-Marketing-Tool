@@ -2,6 +2,7 @@
   "name": "api",
   "type": "module",
   "scripts": {
+    "start": "concurrently --kill-others --restart-tries 3 \"tsx src/index.ts\" \"tsx src/cron/scheduler.ts\" ",
     "dev": "concurrently --kill-others --restart-tries 3 \"npm run dev:server\" \"npm run dev:scheduler\"",
     "dev:server": "tsx watch --clear-screen=false src/index.ts",
     "dev:scheduler": "tsx watch --clear-screen=false src/cron/scheduler.ts",
