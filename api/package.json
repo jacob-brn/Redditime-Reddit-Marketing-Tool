@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "start": "concurrently --kill-others --restart-tries 3 \"node dist/index.js\" \"node dist/cron/scheduler.js\" ",
+    "start": "concurrently --kill-others --restart-tries 3 \"tsx watch --clear-screen=false src/index.js\" \"tsx watch --clear-screen=false src/cron/scheduler.js\"",
     "dev": "concurrently --kill-others --restart-tries 3 \"tsx watch --clear-screen=false src/index.js\" \"tsx watch --clear-screen=false src/cron/scheduler.js\"",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",

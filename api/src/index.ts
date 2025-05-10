@@ -42,7 +42,7 @@ app.use("*", async (c, next) => {
 app.route("/api/auth", authRoute);
 app.route("/api/reddit", redditRoute);
 
-const port = 8080;
+const port = 3001;
 console.log(`Server is running on http://localhost:${port}`);
 
 // Start the API server

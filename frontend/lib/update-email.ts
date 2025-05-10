@@ -5,7 +5,7 @@ const updateEmail = async (email: string) => {
 
   try {
     const res = await axios.post(
-      "http://localhost:8080/api/auth/update-email",
+      `${process.env.NEXT_PUBLIC_API_URL}/api/auth/update-email`,
       {
         email,
       },

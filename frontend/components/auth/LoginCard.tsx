@@ -11,7 +11,7 @@ import { FaRedditAlien } from "react-icons/fa6";
 
 export default function LogInCard() {
   return (
-    <Card className="max-w-lg mx-auto w-full rounded-none border-none shadow-none">
+    <Card className="max-w-lg mx-auto w-full rounded-md border-none shadow-none">
       <CardHeader>
         <CardTitle>
           <div className="border w-min rounded-md mx-auto [box-shadow:0px_0px_12px_-5px_var(--primary)_inset]">
