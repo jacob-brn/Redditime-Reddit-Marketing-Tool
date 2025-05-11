@@ -13,17 +13,18 @@ const app = new Hono<{
   };
 }>();
 
-app.use(
-  "/*",
-  cors({
+app.use("*", async (c, next) => {
+  const corsMiddleware = cors({
     origin: [env.NEXT_PUBLIC_APP_URL],
     allowHeaders: ["Content-Type", "Authorization"],
-    allowMethods: ["POST", "GET", "OPTIONS"],
+    allowMethods: ["GET", "OPTIONS", "POST", "PUT", "DELETE"],
     exposeHeaders: ["Content-Length"],
     maxAge: 600,
     credentials: true,
-  })
-);
+  });
+
+  return corsMiddleware(c, next);
+});
 
 app.use("*", async (c, next) => {
   const session = await auth.api.getSession({ headers: c.req.raw.headers });
