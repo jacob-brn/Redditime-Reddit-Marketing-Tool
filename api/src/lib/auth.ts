@@ -6,10 +6,6 @@ import { extractParentDomain } from "./extract-parent-domain.js";
 
 export const auth = betterAuth({
   advanced: {
-    // crossSubDomainCookies: {
-    //   enabled: true,
-    //   domain: env.NEXT_PUBLIC_APP_URL,
-    // }
     ...(() => {
       const parentDomain = extractParentDomain(env.NEXT_PUBLIC_APP_URL);
       if (parentDomain) {
