@@ -25,6 +25,10 @@ app.use("*", async (c, next) => {
   return await corsMiddleware(c, next);
 });
 
+app.get("/test", async (c) => {
+  return c.json({ env: env });
+});
+
 app.use("*", async (c, next) => {
   const session = await auth.api.getSession({ headers: c.req.raw.headers });
 
