@@ -18,12 +18,12 @@ app.use("*", async (c, next) => {
     origin: [env.NEXT_PUBLIC_APP_URL],
     allowHeaders: ["Content-Type", "Authorization"],
     allowMethods: ["GET", "OPTIONS", "POST", "PUT", "DELETE"],
-    exposeHeaders: ["Content-Length"],
     maxAge: 600,
     credentials: true,
   });
 
-  return corsMiddleware(c, next);
+  console.log(env.NEXT_PUBLIC_APP_URL);
+  return await corsMiddleware(c, next);
 });
 
 app.use("*", async (c, next) => {
