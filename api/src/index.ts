@@ -5,6 +5,7 @@ import redditRoute from "./routes/reddit.js";
 import authRoute from "./routes/auth.js";
 import { cors } from "hono/cors";
 import { env } from "./lib/env.js";
+import { extractParentDomain } from "./lib/extract-parent-domain.js";
 
 const app = new Hono<{
   Variables: {
@@ -12,6 +13,14 @@ const app = new Hono<{
     session: typeof auth.$Infer.Session.session | null;
   };
 }>();
+
+app.use("/test", async (c, next) => {
+  const domainParent = extractParentDomain(env.NEXT_PUBLIC_APP_URL);
+
+  return c.json({
+    domainParent: domainParent,
+  });
+});
 
 app.use("*", async (c, next) => {
   const corsMiddleware = cors({
