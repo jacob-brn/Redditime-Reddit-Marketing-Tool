@@ -15,7 +15,6 @@ async function submitPostToReddit(
     // Remove 'r/' prefix if it exists
     const cleanSubreddit = subreddit.replace(/^r\//, "");
 
-    console.log(cleanSubreddit);
     const response = await axios.post(
       "https://oauth.reddit.com/api/submit",
       new URLSearchParams({
@@ -127,7 +126,6 @@ export default async function postScheduledPosts() {
           post.subreddit
         );
 
-        console.log(result);
         // Update post status to posted
         await db
           .update(scheduledPost)

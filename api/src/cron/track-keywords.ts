@@ -246,7 +246,7 @@ async function checkSubreddit(
             );
 
             const emailResponse = await resend.emails.send({
-              from: "Redditime <transactional@transactional.docsify.tech>",
+              from: `Redditime <${env.EMAIL_FROM}>`,
               to: userData.email,
               subject: `New Reddit posts found for "${userPosts[0].matchingKeywords[0]}"`,
               react: EmailTemplate({
