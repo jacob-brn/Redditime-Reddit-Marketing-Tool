@@ -209,7 +209,13 @@ app.get("/my-tracked-keywords", async (c) => {
 
 app.get("/test", async (c) => {
   const redditInfo = await axios.get(
-    `https://www.reddit.com/r/indiehackers/about.json`
+    `https://www.reddit.com/r/indiehackers/about.json`,
+    {
+      headers: {
+        "User-Agent": `${env.REDDIT_USER_AGENT}`,
+        Accept: "application/json",
+      },
+    }
   );
 
   return c.json(redditInfo.data);
