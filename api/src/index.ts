@@ -1,10 +1,10 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
-import { auth } from "./lib/auth.js";
-import redditRoute from "./routes/reddit.js";
-import authRoute from "./routes/auth.js";
+import { auth } from "./lib/auth.ts";
+import redditRoute from "./routes/reddit.ts";
+import authRoute from "./routes/auth.ts";
 import { cors } from "hono/cors";
-import { env } from "./lib/env.js";
+import { env } from "./lib/env.ts";
 
 const app = new Hono<{
   Variables: {
@@ -23,10 +23,6 @@ app.use("*", async (c, next) => {
   });
 
   return await corsMiddleware(c, next);
-});
-
-app.get("/test", async (c) => {
-  return c.json({ env: env });
 });
 
 app.use("*", async (c, next) => {

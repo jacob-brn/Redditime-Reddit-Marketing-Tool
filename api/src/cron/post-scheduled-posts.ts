@@ -1,9 +1,9 @@
-import { db } from "../db/index.js";
-import { scheduledPost } from "../db/schema.js";
+import { db } from "../db/index.ts";
+import { scheduledPost } from "../db/schema.ts";
 import { and, eq, lte } from "drizzle-orm";
-import getRedditAccessToken from "../lib/get-reddit-access-token.js";
+import getRedditAccessToken from "../lib/get-reddit-access-token.ts";
 import axios from "axios";
-import { env } from "../lib/env.js";
+import { env } from "../lib/env.ts";
 
 async function submitPostToReddit(
   accessToken: string,

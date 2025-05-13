@@ -1,7 +1,7 @@
-import { db } from "../db/index.js";
-import { account } from "../db/schema.js";
+import { db } from "../db/index.ts";
+import { account } from "../db/schema.ts";
 import { eq } from "drizzle-orm";
-import { env } from "./env.js";
+import { env } from "./env.ts";
 
 const REDDIT_CLIENT_ID = env.REDDIT_CLIENT_ID!;
 const REDDIT_CLIENT_SECRET = env.REDDIT_CLIENT_SECRET!;

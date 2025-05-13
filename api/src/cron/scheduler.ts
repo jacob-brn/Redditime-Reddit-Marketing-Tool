@@ -1,6 +1,6 @@
 import cron from "node-cron";
-import trackKeywords from "./track-keywords.js";
-import postScheduledPosts from "./post-scheduled-posts.js";
+import trackKeywords from "./track-keywords.ts";
+import postScheduledPosts from "./post-scheduled-posts.ts";
 
 // Schedule the keyword tracking job to run every 15 minutes
 cron.schedule("*/15 * * * *", async () => {

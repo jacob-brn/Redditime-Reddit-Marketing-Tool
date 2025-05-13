@@ -1,13 +1,13 @@
 import { Hono } from "hono";
-import type { auth } from "../lib/auth.js";
+import type { auth } from "../lib/auth.ts";
 import axios from "axios";
-import getRedditAccessToken from "../lib/get-reddit-access-token.js";
-import { db } from "../db/index.js";
-import { subscription, seenPost, scheduledPost } from "../db/schema.js";
+import getRedditAccessToken from "../lib/get-reddit-access-token.ts";
+import { db } from "../db/index.ts";
+import { subscription, seenPost, scheduledPost } from "../db/schema.ts";
 import { nanoid } from "nanoid";
 import { and, eq } from "drizzle-orm";
 import { z } from "zod";
-import { env } from "../lib/env.js";
+import { env } from "../lib/env.ts";
 
 const app = new Hono<{
   Variables: {

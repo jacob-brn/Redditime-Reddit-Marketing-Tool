@@ -1,30 +1,33 @@
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { db } from "../db/index.js";
-import { env } from "./env.js";
-import { extractParentDomain } from "./extract-parent-domain.js";
+import { db } from "../db/index.ts";
+import { env } from "./env.ts";
+import { extractParentDomain } from "./extract-parent-domain.ts";
 
 export const auth = betterAuth({
-  advanced: {
-    ...(() => {
-      const parentDomain = extractParentDomain(env.NEXT_PUBLIC_APP_URL);
-      if (parentDomain) {
-        return {
-          crossSubDomainCookies: {
-            enabled: true,
-            domain: parentDomain,
-          },
-        };
-      }
+  advanced: (() => {
+    if (env.NEXT_PUBLIC_APP_URL.includes("localhost")) {
       return {};
-    })(),
-    defaultCookieAttributes: {
-      secure: true,
-      httpOnly: true,
-      sameSite: "none",
-      partitioned: true,
-    },
-  },
+    }
+
+    const parentDomain = extractParentDomain(env.NEXT_PUBLIC_APP_URL);
+
+    return {
+      ...(parentDomain && {
+        crossSubDomainCookies: {
+          enabled: true,
+          domain: parentDomain,
+        },
+      }),
+      defaultCookieAttributes: {
+        secure: true,
+        httpOnly: true,
+        sameSite: "none",
+        partitioned: true,
+      },
+      useSecureCookies: true,
+    };
+  })(),
   trustedOrigins: [env.NEXT_PUBLIC_APP_URL],
   socialProviders: {
     reddit: {

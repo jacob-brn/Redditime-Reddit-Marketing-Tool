@@ -6,4 +6,11 @@ export const authClient = createAuthClient({
   plugins: [nextCookies()],
 });
 
+export const signInWithReddit = async () => {
+  await authClient.signIn.social({
+    provider: "reddit",
+    callbackURL: `${process.env.NEXT_PUBLIC_APP_URL}/dashboard/`,
+  });
+};
+
 export const { signIn, signOut, signUp, useSession } = authClient;

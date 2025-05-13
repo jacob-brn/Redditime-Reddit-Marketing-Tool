@@ -1,11 +1,11 @@
-import { db } from "../db/index.js";
-import { subscription, seenPost, user } from "../db/schema.js";
+import { db } from "../db/index.ts";
+import { subscription, seenPost, user } from "../db/schema.ts";
 import { eq, inArray } from "drizzle-orm";
 import axios from "axios";
-import { env } from "../lib/env.js";
+import { env } from "../lib/env.ts";
 import { nanoid } from "nanoid";
 import { Resend } from "resend";
-import EmailTemplate from "../emails/tracked-keyword-found.js";
+import EmailTemplate from "../emails/tracked-keyword-found.tsx";
 
 // Reddit API base URL
 const REDDIT_API_BASE = "https://oauth.reddit.com";

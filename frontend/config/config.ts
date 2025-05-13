@@ -1,6 +1,6 @@
 const config = {
   name: "Redditime",
-  githubRepoUrl: "https://www.github.com/jacob-brn",
+  githubRepoUrl: "https://github.com/jacob-brn/Redditime-Reddit-Marketing-Tool",
 };
 
 export default config;
