@@ -19,14 +19,14 @@ export const auth = betterAuth({
           domain: parentDomain,
         },
       }),
-      defaultCookieAttributes: {
-        secure: true,
-        httpOnly: true,
-        sameSite: "none",
-        partitioned: true,
-      },
     };
   })(),
+  defaultCookieAttributes: {
+    secure: true,
+    httpOnly: true,
+    sameSite: "none",
+    partitioned: true,
+  },
   trustedOrigins: [env.NEXT_PUBLIC_APP_URL],
   socialProviders: {
     reddit: {
