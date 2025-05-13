@@ -221,6 +221,12 @@ app.post("/add-keyword", async (c) => {
   const redditInfo = await axios.get(
     `https://www.reddit.com/r/${subreddit.replace("r/", "")}/about.json`
   );
+
+  console.log(redditInfo);
+
+  console.log(redditInfo.data);
+
+  console.log(redditInfo.config);
   const icon =
     redditInfo.data?.data?.icon_img ||
     redditInfo.data?.data?.community_icon ||
