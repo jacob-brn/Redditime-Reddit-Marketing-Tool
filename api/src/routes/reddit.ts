@@ -207,6 +207,14 @@ app.get("/my-tracked-keywords", async (c) => {
   return c.json({ subscriptions: myKeywords });
 });
 
+app.get("/test", async (c) => {
+  const redditInfo = await axios.get(
+    `https://www.reddit.com/r/indiehackers/about.json`
+  );
+
+  return c.json(redditInfo.data);
+});
+
 app.post("/add-keyword", async (c) => {
   const session = c.get("session");
   const user = c.get("user");
