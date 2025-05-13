@@ -5,22 +5,20 @@ import { env } from "./env.ts";
 import { extractParentDomain } from "./extract-parent-domain.ts";
 
 export const auth = betterAuth({
-  advanced: (() => {
-    if (env.NEXT_PUBLIC_APP_URL.includes("localhost")) {
+  advanced: {
+    ...(() => {
+      const parentDomain = extractParentDomain(env.NEXT_PUBLIC_APP_URL);
+      if (parentDomain) {
+        return {
+          crossSubDomainCookies: {
+            enabled: true,
+            domain: parentDomain,
+          },
+        };
+      }
       return {};
-    }
-
-    const parentDomain = extractParentDomain(env.NEXT_PUBLIC_APP_URL);
-
-    return {
-      ...(parentDomain && {
-        crossSubDomainCookies: {
-          enabled: true,
-          domain: parentDomain,
-        },
-      }),
-    };
-  })(),
+    })(),
+  },
   defaultCookieAttributes: {
     secure: true,
     httpOnly: true,
