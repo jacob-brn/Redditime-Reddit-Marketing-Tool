@@ -212,6 +212,9 @@ app.get("/test", async (c) => {
     `https://www.reddit.com/r/indiehackers/about.json`,
     {
       headers: {
+        Authorization: `Basic ${Buffer.from(
+          `${env.REDDIT_CLIENT_ID}:${env.REDDIT_CLIENT_SECRET}`
+        ).toString("base64")}`,
         "User-Agent": `${env.REDDIT_USER_AGENT}`,
         Accept: "application/json",
       },
