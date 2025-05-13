@@ -207,23 +207,6 @@ app.get("/my-tracked-keywords", async (c) => {
   return c.json({ subscriptions: myKeywords });
 });
 
-app.get("/test", async (c) => {
-  const redditInfo = await axios.get(
-    `https://www.reddit.com/r/indiehackers/about.json`,
-    {
-      headers: {
-        Authorization: `Basic ${Buffer.from(
-          `${env.REDDIT_CLIENT_ID}:${env.REDDIT_CLIENT_SECRET}`
-        ).toString("base64")}`,
-        "User-Agent": `${env.REDDIT_USER_AGENT}`,
-        Accept: "application/json",
-      },
-    }
-  );
-
-  return c.json(redditInfo.data);
-});
-
 app.post("/add-keyword", async (c) => {
   const session = c.get("session");
   const user = c.get("user");
@@ -239,6 +222,9 @@ app.post("/add-keyword", async (c) => {
     `https://www.reddit.com/r/${subreddit.replace("r/", "")}/about.json`,
     {
       headers: {
+        Authorization: `Basic ${Buffer.from(
+          `${env.REDDIT_CLIENT_ID}:${env.REDDIT_CLIENT_SECRET}`
+        ).toString("base64")}`,
         "User-Agent": `${env.REDDIT_USER_AGENT}`,
         Accept: "application/json",
       },
