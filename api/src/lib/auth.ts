@@ -25,7 +25,6 @@ export const auth = betterAuth({
         sameSite: "none",
         partitioned: true,
       },
-      useSecureCookies: true,
     };
   })(),
   trustedOrigins: [env.NEXT_PUBLIC_APP_URL],
