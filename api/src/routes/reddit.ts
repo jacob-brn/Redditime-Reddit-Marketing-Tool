@@ -219,7 +219,13 @@ app.post("/add-keyword", async (c) => {
     return c.json({ error: "Missing keyword or subreddit" }, 400);
 
   const redditInfo = await axios.get(
-    `https://www.reddit.com/r/${subreddit.replace("r/", "")}/about.json`
+    `https://www.reddit.com/r/${subreddit.replace("r/", "")}/about.json`,
+    {
+      headers: {
+        "User-Agent": `${env.REDDIT_USER_AGENT}`,
+        Accept: "application/json",
+      },
+    }
   );
 
   console.log(redditInfo);
